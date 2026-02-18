@@ -80,7 +80,8 @@ Your Vibe: High-energy, motivating, wellness-obsessed, helpful, and fun. Think "
 
 // Use the standard GoogleGenerativeAI type
 let genAI: GoogleGenerativeAI | null = null;
-let model: any = null;
+
+const MODELS_TO_TRY = ["gemini-1.5-flash", "gemini-1.5-flash-latest", "gemini-1.0-pro", "gemini-pro"];
 
 export async function askAssistant(prompt: string) {
   try {
@@ -93,15 +94,28 @@ export async function askAssistant(prompt: string) {
       }
 
       genAI = new GoogleGenerativeAI(apiKey);
-      model = genAI.getGenerativeModel({
-        model: "gemini-1.5-flash",
-        systemInstruction: SYSTEM_PROMPT
-      });
     }
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    return response.text();
+    let lastError = null;
+
+    for (const modelName of MODELS_TO_TRY) {
+      try {
+        const model = genAI.getGenerativeModel({
+          model: modelName,
+          systemInstruction: SYSTEM_PROMPT
+        });
+
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        return response.text();
+      } catch (error) {
+        console.warn(`Model ${modelName} failed:`, error);
+        lastError = error;
+        // Continue to next model
+      }
+    }
+
+    throw lastError || new Error("All models failed");
   } catch (error) {
     console.error("Gemini API Error:", error);
     const errorMessage = (error as any).message || String(error);
