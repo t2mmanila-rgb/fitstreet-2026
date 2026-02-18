@@ -12,3 +12,5 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+console.log("Fitstreet App Mounted Successfully");
