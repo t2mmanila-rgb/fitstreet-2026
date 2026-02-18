@@ -93,7 +93,7 @@ export async function askAssistant(prompt: string) {
     }
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.0-flash', // Updated to latest stable if available, or keep preview
+      model: 'gemini-1.5-flash',
       contents: prompt,
       config: {
         systemInstruction: SYSTEM_PROMPT,
@@ -102,6 +102,7 @@ export async function askAssistant(prompt: string) {
     return response.text;
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "I'm having a bit of a hydration break. Please try again in a moment!";
+    const errorMessage = (error as any).message || String(error);
+    return `(Debug Mode) Error: ${errorMessage}. Please check your API Key in Vercel!`;
   }
 }
