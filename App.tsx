@@ -78,8 +78,8 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-16 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-fs-dark via-fs-dark/50 to-fs-dark z-10 pointer-events-none" />
-      <div className="absolute inset-0 z-0 opacity-40">
+      <div className="absolute inset-0 bg-gradient-to-b from-fs-dark via-fs-dark/20 to-fs-dark z-10 pointer-events-none" />
+      <div className="absolute inset-0 z-0 opacity-60">
         <iframe
           src="https://www.youtube.com/embed/ipux3varins?autoplay=1&mute=1&loop=1&playlist=ipux3varins&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
           title="Fitstreet HEATWAVE 2026"
