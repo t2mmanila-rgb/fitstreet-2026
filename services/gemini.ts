@@ -81,7 +81,13 @@ Your Vibe: High-energy, motivating, wellness-obsessed, helpful, and fun. Think "
 // Use the standard GoogleGenerativeAI type
 let genAI: GoogleGenerativeAI | null = null;
 
-const MODELS_TO_TRY = ["gemini-1.5-flash", "gemini-1.5-flash-latest", "gemini-1.0-pro", "gemini-pro"];
+// Updated based on user's API key capabilities (2.0/2.5 series)
+const MODELS_TO_TRY = [
+  "gemini-2.0-flash",           // Primary
+  "gemini-2.0-flash-lite",      // Fallback
+  "gemini-flash-latest",        // General alias
+  "gemini-2.0-pro-exp",         // Backup pro
+];
 
 export async function askAssistant(prompt: string) {
   try {
