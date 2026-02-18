@@ -87,11 +87,9 @@ const Hero: React.FC = () => {
 
       <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
         <div className="relative z-10 w-full max-w-[550px] mx-auto mb-8 flex flex-col gap-2">
-          <img
-            src="/fitstreet-logo-high-res.png"
-            alt="Fitstreet 2026"
-            className="w-full drop-shadow-2xl"
-          />
+          <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter text-white drop-shadow-2xl leading-none">
+            FITSTREET<span className="text-fs-orange">2026</span>
+          </h1>
           <img
             src="/360-logo.png"
             alt="360 Health & Wellness Festival"
