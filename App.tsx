@@ -71,11 +71,7 @@ const Navbar: React.FC = () => {
   );
 };
 
-interface HeroProps {
-  onOpenModal: (type: 'free' | 'vip') => void;
-}
-
-const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
+const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-16 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-fs-dark via-fs-dark/20 to-fs-dark z-10 pointer-events-none" />
@@ -126,9 +122,9 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button onClick={() => onOpenModal('free')} className="px-10 py-4 bg-gradient-to-r from-fs-orange to-fs-pink text-white font-bold rounded-full text-lg hover:scale-105 transition-all shadow-lg shadow-fs-orange/20 animate-pulse-glow">
+          <a href="#tickets" className="px-10 py-4 bg-gradient-to-r from-fs-orange to-fs-pink text-white font-bold rounded-full text-lg hover:scale-105 transition-all shadow-lg shadow-fs-orange/20 animate-pulse-glow flex items-center justify-center">
             Get Your Pass
-          </button>
+          </a>
           <a href="https://drive.google.com/file/d/1iqouHJpOv7v35VpW6NGMvcG96lq5pKeH/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="px-10 py-4 border border-white/20 text-white font-bold rounded-full text-lg hover:bg-white/10 transition-colors">
             Presentation Deck
           </a>
@@ -482,7 +478,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero onOpenModal={openModal} />
+      <Hero />
 
       {/* The Idea */}
       <section id="idea" className="py-32 px-4 relative">
