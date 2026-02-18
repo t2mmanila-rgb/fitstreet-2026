@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
             <img
               src="/fitstreet-logo-high-res.png"
               alt="Fitstreet 2026"
-              className="h-8 md:h-10 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain"
             />
           </a>
           <div className="hidden md:flex items-center gap-8">
@@ -745,7 +745,7 @@ const App: React.FC = () => {
               <img
                 src="/fitstreet-logo-high-res.png"
                 alt="Fitstreet 2026"
-                className="h-10 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </div>
             <div className="flex flex-col md:flex-row items-center gap-10">
