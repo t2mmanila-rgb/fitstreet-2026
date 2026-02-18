@@ -1,5 +1,4 @@
-
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const SYSTEM_PROMPT = `
 You are the "Fitstreet 2026 Festival Guide", the official AI assistant for Fitstreet HEATWAVE.
@@ -79,27 +78,30 @@ Your Vibe: High-energy, motivating, wellness-obsessed, helpful, and fun. Think "
 5. **Unknowns:** If you don't know the answer (e.g., exact parking spots), say: "I don't have that specific detail yet, but BGC usually has parking at High Street South or Central Square!"
 `;
 
-let ai: GoogleGenAI | null = null;
+// Use the standard GoogleGenerativeAI type
+let genAI: GoogleGenerativeAI | null = null;
+let model: any = null;
 
 export async function askAssistant(prompt: string) {
   try {
-    if (!ai) {
+    if (!genAI) {
       const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || "";
+
       if (!apiKey) {
         console.warn("Gemini API Key is missing");
         return "I'm currently offline (missing API key). Please check back later!";
       }
-      ai = new GoogleGenAI({ apiKey });
+
+      genAI = new GoogleGenerativeAI(apiKey);
+      model = genAI.getGenerativeModel({
+        model: "gemini-1.5-flash",
+        systemInstruction: SYSTEM_PROMPT
+      });
     }
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-1.5-flash',
-      contents: prompt,
-      config: {
-        systemInstruction: SYSTEM_PROMPT,
-      },
-    });
-    return response.text;
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    return response.text();
   } catch (error) {
     console.error("Gemini API Error:", error);
     const errorMessage = (error as any).message || String(error);
