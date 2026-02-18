@@ -118,7 +118,18 @@ export async function askAssistant(prompt: string) {
     throw lastError || new Error("All models failed");
   } catch (error) {
     console.error("Gemini API Error:", error);
+
+    // Masked Key check
+    const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || "";
+    const maskedKey = apiKey ? `${apiKey.substring(0, 4)}...${apiKey.substring(apiKey.length - 4)}` : "MISSING";
+
     const errorMessage = (error as any).message || String(error);
-    return `(Debug Mode) Error: ${errorMessage}. Please check your API Key in Vercel!`;
+
+    // Friendly error for 404
+    if (errorMessage.includes("404") || errorMessage.includes("not found")) {
+      return `(Debug Mode) Error: 404 Model Not Found. Key: ${maskedKey}. \n\nPOSSIBLE FIX: Go to Google Cloud Console > APIs & Services > Enabled APIs. Make sure "Google Generative AI API" is enabled!`;
+    }
+
+    return `(Debug Mode) Error: ${errorMessage}. Key: ${maskedKey}. Please check Vercel settings.`;
   }
 }
