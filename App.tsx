@@ -36,7 +36,11 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="flex items-center">
-            <span className="text-2xl font-black italic tracking-tighter text-white">FITSTREET<span className="text-fs-orange">2026</span></span>
+            <img
+              src="/fitstreet-logo-high-res.png"
+              alt="Fitstreet 2026"
+              className="h-8 md:h-10 w-auto object-contain"
+            />
           </a>
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map(link => (
@@ -87,9 +91,11 @@ const Hero: React.FC = () => {
 
       <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
         <div className="relative z-10 w-full max-w-[550px] mx-auto mb-8 flex flex-col gap-2">
-          <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter text-white drop-shadow-2xl leading-none">
-            FITSTREET<span className="text-fs-orange">2026</span>
-          </h1>
+          <img
+            src="/fitstreet-logo-high-res.png"
+            alt="Fitstreet 2026"
+            className="w-full drop-shadow-2xl mb-4"
+          />
           <img
             src="/360-logo.png"
             alt="360 Health & Wellness Festival"
@@ -741,7 +747,11 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10">
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-black italic text-white uppercase tracking-tighter">FITSTREET<span className="text-fs-orange">2026</span></span>
+              <img
+                src="/fitstreet-logo-high-res.png"
+                alt="Fitstreet 2026"
+                className="h-10 w-auto object-contain"
+              />
             </div>
             <div className="flex flex-col md:flex-row items-center gap-10">
               <div className="flex items-center gap-6">
