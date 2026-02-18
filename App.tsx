@@ -116,7 +116,7 @@ const Hero: React.FC = () => {
           </div>
           <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-10 py-6 hover:border-fs-pink/50 transition-colors">
             <p className="text-xs font-bold text-fs-pink tracking-[0.2em] uppercase mb-1">Location</p>
-            <p className="text-3xl font-black text-white">BGC, MANILA</p>
+            <p className="text-3xl font-black text-white">BONIFACIO HIGH STREET</p>
           </div>
         </div>
 
@@ -470,8 +470,9 @@ const App: React.FC = () => {
   const [modalType, setModalType] = useState<'free' | 'vip'>('free');
 
   const openModal = (type: 'free' | 'vip') => {
-    setModalType(type);
-    setModalOpen(true);
+    // setModalType(type);
+    // setModalOpen(true);
+    alert("Registration coming soon! Stay tuned.");
   };
 
   return (
