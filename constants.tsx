@@ -124,7 +124,7 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "CHRISTINA MANINGO",
-    role: "Mind+Body Lead",
+    role: "Longevity Lead",
     initials: "CM",
     color: "#B44AFF",
     description: "Guiding breathwork, grounding practices, and nervous system regulation — bringing calm, clarity, and balance to the HEATWAVE experience."
