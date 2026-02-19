@@ -127,7 +127,7 @@ export const TEAM: TeamMember[] = [
     role: "Longevity Lead",
     initials: "CM",
     color: "#B44AFF",
-    description: "Guiding breathwork, grounding practices, and nervous system regulation — bringing calm, clarity, and balance to the HEATWAVE experience."
+    description: "Leading evidence-based longevity strategies to maximize healthy lifespan through personalized lifestyle protocols and medical interventions."
   }
 ];
 
